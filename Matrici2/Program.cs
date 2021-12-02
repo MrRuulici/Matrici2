@@ -6,47 +6,47 @@ namespace Matrici2
     {
         static void Main(string[] args)
         {
-            Console.Write("Nr de linii si coloane: ");
+            Console.Write("Nr de linii=  ");
             int n = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Nr de coloane=  ");
             int m = Convert.ToInt32(Console.ReadLine());
-            int[,] arr1 = new int[n,m];
-            int[] sumar = new int[n];
-            int[] sumac= new int[n];
+            int[,] matrix = new int[n,m];
+            int sumr = 0;
+            int sumc = 0;
 
             Console.Write("Elementele matricii :\n");
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
                 {
-                    Console.Write($"element - [{i}],[{j}] : ");
-                    arr1[i, j] = Convert.ToInt32(Console.ReadLine());
+                    Console.Write($"[{i}],[{j}] : ");
+                    matrix[i, j] = Convert.ToInt32(Console.ReadLine());
                 }
             }
+
+            Console.Write("Randul ");
+            int c = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Coloana ");
+            int r = Convert.ToInt32(Console.ReadLine());
 
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < m; j++)
-                    Console.Write(arr1[i, j] + " ");
+                    Console.Write(matrix[i, j] + " ");
                 Console.Write("\n");
             }
 
            
             for (int i  = 0; i < n; i++)
             {
-                sumar[i] = 0;
-                for (int j = 0; j < m; j++)
-                    sumar[i] = sumar[i] + arr1[i, j];
-                Console.WriteLine($"Suma linia {i+1} = " + sumar[i]);
+                sumc = sumc + matrix[i, r];
             }
-
-            
-            for (int i = 0; i < n; i++)
+            for (int j = 0; j < m; j++)
             {
-                sumac[i] = 0;
-                for (int j = 0; j < n; j++)
-                    sumac[i] = sumac[i] + arr1[j, i];
-                Console.WriteLine($"Suma coloana {i + 1} = " + sumac[i]);
+                sumr = sumr + matrix[c, j];
             }
+            Console.WriteLine($"Suma randului {c} este " + sumr);
+            Console.WriteLine($"Suma coloanei {r} este " + sumc);
         }
     }
 
